@@ -1,20 +1,22 @@
-<h2 class="list-title">List of All Movies</h2>
+<h2 class="list-title">Movies</h2>
 <div class="container">
   <div class="row">
     {{#each movies}}
-    <div class="col-lg-3 col-md-6 movie-list">
-     <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h3 class="card-title">{{this.title}}</h3>
-    <h6 class="card-subtitle mb-2 text-muted">{{this.genre}}</h6>
-    <a href="/movies/{{this._id}}" class="card-link">See more Detail</a>
-    <a href="/movies/{{this.id}}/edit" class="card-link">Edit</a>
-  </div>
-</div>
-    </div>
+      <div class="col-lg-3 col-md-6 movie-list">
+        <div class="card clbr" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title"><b>{{this.title}}</b></h3>
+            <h6 class="card-subtitle mb-2 text-muted">{{this.genre}}</h6>
+            <p class="card-text">{{this.plot}}</p>
+            <br />
+            <a href="/movies/{{this._id}}" class="card-link">See more Detail</a>
+            <a href="/movies/{{this.id}}/edit" class="card-link">Edit</a>
+          </div>
+        </div>
+      </div>
     {{/each}}
   </div>
- <br>
+  <br />
   <div class="row back-to-home-btn">
     <div class="col-lg-2">
       <a href="/">back to homepage</a>

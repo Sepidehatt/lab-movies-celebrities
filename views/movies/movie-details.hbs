@@ -19,12 +19,15 @@
     <div class="col">
       <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h3 class="card-title">{{movie.title}}</h3>
+          <h3 class="card-title"><b>{{movie.title}}</b></h3>
           <h6 class="card-subtitle mb-2 text-muted">{{movie.genre}}</h6>
           <p class="card-text">{{movie.plot}}</p>
+          <h5>Cast:</h5>
           {{#each movie.cast}}
-          <p class="card-text">{{this.name}}</p>
+            <span><b>{{this.name}} |</b></span>
           {{/each}}
+          <br>
+          <br>
           <form action="/movies/{{movie._id}}/delete" method="POST">
             <button type="submit">Delete</button>
           </form>
@@ -33,11 +36,10 @@
       </div>
     </div>
   </div>
-  <br>
+  <br />
   <div class="row">
     <div class="col">
       <a href="/movies" class="card-link">back to movies</a>
     </div>
   </div>
 </div>
-

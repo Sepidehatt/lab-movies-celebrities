@@ -38,9 +38,10 @@
       name="cast"
       class="form-select"
       aria-label="Default select example"
+      multiple
     >
-      <option selected>select cast</option>
-      {{#each movie.cast}}
+      <option >select cast</option>
+      {{#each celebrities }}
         <option name="cast" value="{{this._id}}">{{this.name}}</option>
       {{/each}}
     </select>

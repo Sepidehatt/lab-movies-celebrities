@@ -1,5 +1,5 @@
 body {
-  background-color: gray;
+  background-color: rgb(40, 40, 40);
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -19,6 +19,8 @@ a:hover{
 }
 
 .home-page{
+
+  object-fit: cover;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -53,7 +55,7 @@ justify-content: flex-end;
 button{
   color: goldenrod;
   text-align: center;
-  background-color: gray;
+  background-color: rgb(40, 40, 40);
   border: 2px solid goldenrod;
   border-radius:5px;
   padding: 8px 20px;
@@ -66,4 +68,13 @@ button:hover{
 
 .movie-list{
   margin:10px 0;
+}
+
+hr {
+  color: white;
+
+}
+
+.clbr:hover{
+  background-color: rgb(241, 241, 241);
 }

@@ -47,7 +47,7 @@ router.post("/movies/create", (req, res, next) => {
 });
 
 
-//create movie Details
+// movie Details
 router.get("/movies/:movieId", (req, res, next) => {
 
   const id = req.params.movieId;
@@ -77,15 +77,24 @@ router.post('/movies/:movieId/delete', (req, res, next) => {
 
 
 //Edit movie
-
-router.get('/movies/:movieId/edit', (req, res, next) => {
-  const { movieId } = req.params;
-
-  Movie.findById(movieId)
-    .populate("cast")
-    .then(movieToEdit => res.render('movies/edit-movie.hbs', { movie: movieToEdit }))
-    .catch(error => next(error));
+router.get("/movies/:id/edit", (req, res) => {
+  console.log("user clicked to edit movie");
+  const id = req.params.id;
+  let movieToEdit;
+  Movie.findById(id)
+    .then((movieDetails) => {
+      movieToEdit = movieDetails;
+      return Celebrity.find();
+    })
+    .then((celebritiesArray) => {
+      res.render("movies/edit-movie", {
+        movie: movieToEdit,
+        celebrities: celebritiesArray,
+      });
+    })
+    .catch((err) => console.log("Error rendering movie edit form", err));
 });
+
 
 
 
@@ -94,7 +103,7 @@ router.post('/movies/:movieId/edit', (req, res, next) => {
   const { title, genre, plot, cast } = req.body;
 
   Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast })
-    .then(updatedMovie => res.redirect(`/movies/${updatedMovie._id}`))
+    .then(updatedMovie => res.redirect(`/movies`))
     .catch(error => next(error));
 
 });
